@@ -1,0 +1,350 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Dominick Robinson",
+    "image": "",
+    "email": "dominick.robinson.dev@gmail.com",
+    "phone": "(724) 681-5486",
+    "url": "https://domonation.dev",
+    "summary": "",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Pittsburgh",
+      "countryCode": "US",
+      "region": "PA"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "dominickrobinson",
+        "url": "https://linkedin.com/in/dominickrobinson/"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Carnegie Mellon University",
+      "url": "https://www.cmu.edu/graduate/rales-fellows/",
+      "area": "Applied Data Science (MADS)",
+      "studyType": "Master of Science",
+      "startDate": "2025-08-01",
+      "endDate": "2026-05-01",
+      "score": "",
+      "summary": "<a href='https://www.cmu.edu/graduate/rales-fellows/'><strong>Rales Fellow</strong></a>: Highly selective STEM leadership program focused on mentorship, professional development, and industry engagement.",
+      "courses": [
+        "Linear Models",
+        "Generative AI",
+        "Statistical Computing",
+        "Data Visualization",
+        "Data Engineering & Distributed Environments",
+        "Software for Large-Scale Data",
+        "Modern Experimental Design",
+        "Computational Methods for Statistics",
+        "Time Series",
+        "Statistical Machine Learning"
+      ]
+    },
+    {
+      "institution": "Carnegie Mellon University",
+      "url": "https://www.cmu.edu",
+      "area": "Mathematical Sciences (Statistics), Minor in Creative Writing",
+      "studyType": "Bachelor of Science",
+      "startDate": "2021-08-01",
+      "endDate": "2025-05-01",
+      "score": "3.85/4.00",
+      "courses": [
+        "Advanced Data Analysis",
+        "Machine Learning",
+        "Statistical Inference II",
+        "Probability",
+        "Probability Models",
+        "Text Analysis",
+        "Parallel and Sequential Data Structures and Algorithms",
+        "Software Construction",
+        "Software Engineering for Startups",
+        "Operations Research I & II",
+        "Numerical Methods"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "name": "RedZone Robotics",
+      "location": "Pittsburgh, PA",
+      "description": "",
+      "position": "Software Engineering Intern",
+      "url": "",
+      "startDate": "2024-07-01",
+      "endDate": "2025-08-01",
+      "summary": "",
+      "highlights": [
+        "Built Python/OpenCV pipeline to digitize and filter laser imagery for camera calibration",
+        "Designed custom optimization objectives and algorithms for autonomous fisheye camera parameter estimation"
+      ]
+    },
+    {
+      "name": "Mathematical Sciences Department, CMU",
+      "location": "Pittsburgh, PA",
+      "description": "",
+      "position": "Teaching Assistant for Multivariate Analysis",
+      "url": "",
+      "startDate": "2023-08-01",
+      "endDate": "2024-05-01",
+      "summary": "",
+      "highlights": [
+        "Led recitations for 30 students, hosted office hours, and developed course materials using LaTeX"
+      ]
+    }
+  ],
+  "volunteer": [],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "",
+      "keywords": [
+        "Python",
+        "Java",
+        "JavaScript/TypeScript",
+        "R",
+        "SQL",
+        "C"
+      ]
+    },
+    {
+      "name": "Frameworks & Libraries",
+      "level": "",
+      "keywords": [
+        "Pandas",
+        "Spark",
+        "PyTorch",
+        "Dash",
+        "Plotly",
+        "Streamlit",
+        "REST APIs",
+        "React"
+      ]
+    },
+    {
+      "name": "Tools",
+      "level": "",
+      "keywords": [
+        "Git/GitHub",
+        "Tableau",
+        "PostgreSQL",
+        "VSCode",
+        "LaTeX",
+        "Databricks",
+        "Azure",
+        "Godot"
+      ]
+    }
+  ],
+  "languages": [],
+  "interests": [],
+  "references": [],
+  "projects": [
+    {
+      "name": "CMU Corporate Capstone for United States Tennis Association (USTA)",
+      "description": "Corporate Capstone Project for USTA",
+      "highlights": [
+        "Engineered automated ETL pipelines to scrape and clean 4M+ player, tournament, and match data points",
+        "Built interactive Tableau dashboard to meet stakeholder needs, visualizing trends and predictive model insights"
+      ],
+      "keywords": [
+        "ETL",
+        "Tableau",
+        "Predictive Modeling"
+      ],
+      "startDate": "2026-01-01",
+      "endDate": "2026-05-14",
+      "url": "",
+      "roles": [],
+      "type": "Capstone"
+    },
+    {
+      "name": "AI Research Project (Supervised by Prof. Cosma Shalizi)",
+      "description": "Academic AI Research Project at Carnegie Mellon University",
+      "highlights": [
+        "Research on sequential probability assignment for stochastic text generation",
+        "Training on HPC cluster using the DOLMA corpus (3-trillion-token dataset)"
+      ],
+      "keywords": [
+        "AI Research",
+        "Stochastic Text Generation",
+        "HPC cluster",
+        "DOLMA"
+      ],
+      "startDate": "2026-01-01",
+      "endDate": "2026-05-14",
+      "url": "",
+      "roles": [],
+      "type": "Research"
+    },
+    {
+      "name": "Applied Linear Models Final Project: HIV Treatment Report",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Analyzed clinical trial data using linear models to evaluate HIV therapy effectiveness",
+        "Found baseline CD4 count and prior therapy duration predict short-term response"
+      ],
+      "keywords": [
+        "Linear Models",
+        "Clinical Trial Data"
+      ],
+      "startDate": "2025-11-01",
+      "endDate": "2025-12-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Data Engineering Final Project: Automated Data Pipeline and Dashboard",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Designed PostgreSQL schema and ETL pipeline for large education datasets (College Scorecard, IPEDS)",
+        "Built interactive dashboard for data querying and visualization"
+      ],
+      "keywords": [
+        "PostgreSQL",
+        "ETL pipeline",
+        "Dashboard",
+        "Data Engineering"
+      ],
+      "startDate": "2025-11-01",
+      "endDate": "2025-12-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Statistical Principles of Generative AI Final Project",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Generated cop-win graph dataset and applied GraphRNN to synthesize graphs",
+        "Collected and analyzed model performance data to assess accuracy"
+      ],
+      "keywords": [
+        "Generative AI",
+        "GraphRNN",
+        "Graph Theory"
+      ],
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Applied Linear Models Midterm Project: Rail Trails Report",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Investigated impact of proximity to rail trails on home values, finding no significant effect"
+      ],
+      "keywords": [
+        "Linear Models",
+        "Data Analysis"
+      ],
+      "startDate": "2025-10-01",
+      "endDate": "2025-10-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Data Visualization Final Project: Dominance of the Big 3/4 in Men's Tennis",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Cleaned and analyzed ATP Tennis data in R to visualize Big 3/4 dominance in men's professional tennis"
+      ],
+      "keywords": [
+        "Data Visualization",
+        "R",
+        "ATP Tennis"
+      ],
+      "startDate": "2025-10-01",
+      "endDate": "2025-10-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Software Construction Final Project: Santorini",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Designed and built a full-stack web implementation of Santorini using Java backend and React frontend",
+        "Implemented RESTful APIs to manage game state, enforce rules, validate moves, and synchronize UI updates"
+      ],
+      "keywords": [
+        "Full-stack",
+        "Java",
+        "React",
+        "RESTful APIs"
+      ],
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Text Analysis Final Project: Exploring Linguistic Differences Across Generations",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Scraped, cleaned, and tokenized thousands of Reddit comments in Python to build a generational dataset",
+        "Analyzed Gen Alpha, Gen Z, and Millennial text, uncovering shifts in slang, sentiment, and topic use"
+      ],
+      "keywords": [
+        "Text Analysis",
+        "Python",
+        "NLP",
+        "Web Scraping"
+      ],
+      "startDate": "2024-11-01",
+      "endDate": "2024-12-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Operations Research II Final Project: Feeding CMU Orientation",
+      "description": "Academic Project at Carnegie Mellon University",
+      "highlights": [
+        "Optimized a 900-person meal plan by scraping 1,000+ products from Trader Joe's and Whole Foods",
+        "Developed and solved an integer program to minimize costs and meet dietary constraints"
+      ],
+      "keywords": [
+        "Operations Research",
+        "Optimization",
+        "Integer Programming",
+        "Web Scraping"
+      ],
+      "startDate": "2024-10-01",
+      "endDate": "2024-12-01",
+      "url": "",
+      "roles": [],
+      "type": "Academic Project"
+    },
+    {
+      "name": "Graph Theory Research (Supervised by Prof. David Offner)",
+      "description": "Academic Research Project at Carnegie Mellon University",
+      "highlights": [
+        "Developed mathematical tool based on the graph theory game of 'cops and robbers'",
+        "Designed graph editor, JSON converter/parser, and computer opponents with optimal strategies"
+      ],
+      "keywords": [
+        "Graph Theory",
+        "Research",
+        "Algorithms",
+        "JSON parser"
+      ],
+      "startDate": "2023-05-01",
+      "endDate": "2023-12-01",
+      "url": "",
+      "roles": [],
+      "type": "Research"
+    }
+  ]
+}
