@@ -20,11 +20,15 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      # Installs your packages (including the correct Chromium binary version matched to your package.json)
       - name: Install Dependencies
         run: npm install
 
-      - name: Compile PDF Artifact
-        run: node src/render.js --output cv
+      # This marketplace action sets up the virtual frame buffer and execution path hooks
+      - name: Run Puppeteer Layout Compiler in Headless Environment
+        uses: mujo-code/puppeteer-headful@v4
+        with:
+          action: node src/render.js cv.json --output cv
 
       - name: Upload PDF to GitHub Artifacts
         uses: actions/upload-artifact@v4

@@ -65,8 +65,6 @@ const generateTemplate = require('./template.js');
   console.log(`🚀 Rendering PDF layout via Puppeteer as: ${pdfFileName}...`);
   const browser = await puppeteer.launch({ 
     headless: true,
-    // Change 'channel' to 'browser' so it grabs the self-contained downloaded binary
-    browser: 'chrome-headless-shell', 
     args: ['--no-sandbox', '--disable-setuid-sandbox'] 
   });
   const page = await browser.newPage();
