@@ -32,6 +32,13 @@ body {
   text-decoration: none !important; 
 }
 
+.summary-profile {
+  font-size: 11pt;
+  margin-top: 6px;
+  line-height: 1.25;
+  text-align: justify;
+}
+
 h2 {
   font-size: 11pt;
   font-weight: bold;

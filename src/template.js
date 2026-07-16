@@ -31,8 +31,8 @@ module.exports = function generateTemplate(resume) {
   const educationHtml = resume.education.map(edu => {
     const endYear = edu.endDate ? new Date(edu.endDate + 'T00:00:00').getFullYear() : '';
     const dateDisplay = endYear ? `May ${endYear}` : '';
-    const summaryBlock = edu.summary ? `<div class="details-block">${edu.summary}</div>` : '';
     const gpaBlock = edu.score ? `<div class="details-block">${edu.score} GPA</div>` : '';
+    const summaryBlock = edu.summary ? `<div class="details-block">${edu.summary}</div>` : '';
     const coursesList = edu.courses && edu.courses.length > 0 
       ? `<div class="details-block" style="margin-top: 2px;"><span class="bold-text">Relevant coursework:</span> ${edu.courses.join(', ')}</div>`
       : '';
@@ -47,8 +47,8 @@ module.exports = function generateTemplate(resume) {
           <span class="italic-text">${edu.studyType} in ${edu.area}</span>
           <span class="italic-text">Pittsburgh, PA</span>
         </div>
-        ${summaryBlock}
         ${gpaBlock}
+        ${summaryBlock}
         ${coursesList}
       </div>
     `;
@@ -106,6 +106,8 @@ module.exports = function generateTemplate(resume) {
         <a href="${resume.basics.url}" target="_blank">domonation.dev</a> &bull; 
         <a href="${resume.basics.profiles[0].url}" target="_blank">linkedin.com/in/${resume.basics.profiles[0].username}</a>
       </div>
+      <!-- Check if summary is present before compiling the HTML node -->
+      ${resume.basics.summary ? `<div class="summary-profile">${resume.basics.summary}</div>` : ''}
     </div>
 
     <h2>Education</h2>

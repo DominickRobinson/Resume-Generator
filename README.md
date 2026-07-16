@@ -35,6 +35,13 @@ node src/render.js
 # Compile using a variant JSON in data directory
 node src/render.js software_eng.json
 node src/render.js data_scientist.json
+
+# Save the default profile inside dist/GOOGLE/
+node src/render.js --output GOOGLE
+node src/render.js -o GOOGLE
+
+# Combine a custom variant with a specific target directory
+node src/render.js data_scientist.json --output stripe
 ```
 
 The script will automatically parse your data, format the target name from the basics.name field into screaming snake case, and export a clean, clickable file (e.g., `DOMINICK_ROBINSON_RESUME.pdf`) directly into the `dist/` folder.

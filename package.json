@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "json5": "^2.2.3",
     "jsonresume-theme-elegant": "^1.16.1",
     "puppeteer": "^24.43.1"
   }

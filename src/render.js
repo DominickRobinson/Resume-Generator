@@ -1,12 +1,23 @@
 const fs = require('fs');
 const path = require('path');
+const { parseArgs } = require('util'); // Native Node utility to parse flags
 const puppeteer = require('puppeteer');
+const JSON5 = require('json5'); 
 const generateTemplate = require('./template.js');
 
 (async () => {
-  // Capture command-line arguments (e.g., node src/render.js data_science.json)
-  // process.argv[0] is node, process.argv[1] is the script path, process.argv[2] is your argument
-  const jsonFilename = process.argv[2] || 'resume.json';
+  // 1. Configure and parse command-line arguments and flags
+  const options = {
+    output: { type: 'string', short: 'o' }
+  };
+  
+  const { values, positionals } = parseArgs({ 
+    options, 
+    strict: false // Allows positional arguments alongside flags
+  });
+
+  // Positionals are non-flag arguments (e.g., node src/render.js software_eng.json)
+  const jsonFilename = positionals[0] || 'resume.json';
   
   // Resolve the absolute path to the data file inside the data/ folder
   const jsonPath = path.join(__dirname, '../data', jsonFilename);
@@ -18,25 +29,38 @@ const generateTemplate = require('./template.js');
     process.exit(1);
   }
 
-  console.log(`📄 Parsing data/${jsonFilename}...`);
-  const resume = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  console.log(`📄 Parsing data/${jsonFilename} via JSON5...`);
+  const rawJsonContent = fs.readFileSync(jsonPath, 'utf8');
+  const resume = JSON5.parse(rawJsonContent);
 
   // Generate the raw HTML string completely in-memory
   const htmlContent = generateTemplate(resume);
 
-  // Define the target distribution folder path for just the PDF
-  const distDir = path.join(__dirname, '../dist');
-
-  // Automatically create the dist/ folder if it doesn't exist yet
-  if (!fs.existsSync(distDir)) {
-    fs.mkdirSync(distDir, { recursive: true });
-    console.log('📁 Created dist/ directory.');
+  // 2. Determine target distribution folder path (handles base 'dist/' or 'dist/COMPANY')
+  let distDir = path.join(__dirname, '../dist');
+  if (values.output) {
+    distDir = path.join(distDir, values.output);
   }
 
-  // Dynamically extract name from JSON and format it (e.g., "Dominick Robinson" -> "DOMINICK_ROBINSON_RESUME.pdf")
+  // Automatically create the target folder structure if it doesn't exist yet
+  if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
+    console.log(`📁 Created target directory: ${path.relative(path.join(__dirname, '..'), distDir)}`);
+  }
+
+  // Dynamically extract name from JSON and format it
   const formattedName = resume.basics.name.toUpperCase().replace(/\s+/g, '_');
+  
+  // Set up filenames for both the PDF and the copied JSON configuration
   const pdfFileName = `${formattedName}_RESUME.pdf`;
+  const jsonFileName = `${formattedName}_RESUME.json`;
+  
   const fullPdfPath = path.join(distDir, pdfFileName);
+  const fullJsonPath = path.join(distDir, jsonFileName);
+
+  // Save a copy of the source JSON data configuration right next to the layout output
+  fs.writeFileSync(fullJsonPath, rawJsonContent, 'utf8');
+  console.log(`💾 Snapshot data saved as: ${jsonFileName}`);
 
   console.log(`🚀 Rendering PDF layout via Puppeteer as: ${pdfFileName}...`);
   const browser = await puppeteer.launch({ headless: true });
@@ -46,7 +70,7 @@ const generateTemplate = require('./template.js');
   await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
   await page.emulateMediaType('print');
   
-  // Output the dynamically named resume into the dist/ directory
+  // Output the dynamically named resume into the target directory
   await page.pdf({
     path: fullPdfPath,
     format: 'Letter',
@@ -55,5 +79,8 @@ const generateTemplate = require('./template.js');
   });
 
   await browser.close();
-  console.log(`🚀 Success! ${pdfFileName} saved cleanly to dist/ folder.`);
+  
+  // Clean relative path printing for the console log
+  const relativeOutputPath = path.relative(path.join(__dirname, '..'), distDir);
+  console.log(`🚀 Success! Both targets saved cleanly to: ${relativeOutputPath}/`);
 })();
