@@ -63,7 +63,12 @@ const generateTemplate = require('./template.js');
   console.log(`💾 Snapshot data saved as: ${jsonFileName}`);
 
   console.log(`🚀 Rendering PDF layout via Puppeteer as: ${pdfFileName}...`);
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ 
+    headless: true,
+    // Forces Puppeteer to run the ultra-lightweight shell that skips heavy system library checks
+    channel: 'chrome-headless-shell', 
+    args: ['--no-sandbox', '--disable-setuid-sandbox'] 
+  });
   const page = await browser.newPage();
   
   // Puppeteer reads the HTML straight from RAM memory
