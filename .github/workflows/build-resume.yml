@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+# Gives the runner permission to create a release tag and upload assets
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,15 +27,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Native Puppeteer utility to download a standalone Chrome instance into the runner environment
       - name: Download Standalone Chrome Binary
         run: npx puppeteer browsers install chrome
 
       - name: Compile PDF Artifact
-        run: node src/render.js cv.json --output cv
+        run: node src/render.js --output cv
 
-      - name: Upload PDF to GitHub Artifacts
-        uses: actions/upload-artifact@v4
+      # Automatically uploads the newly compiled PDF to a permanent GitHub Release
+      - name: Update Public Release Asset
+        uses: softprops/action-gh-release@v2
         with:
-          name: Dominick-Robinson-Resume
-          path: dist/cv/DOMINICK_ROBINSON_RESUME.pdf
+          tag_name: latest
+          name: "Latest Compiled Resume"
+          draft: false
+          prerelease: false
+          files: dist/cv/DOMINICK_ROBINSON_RESUME.pdf
