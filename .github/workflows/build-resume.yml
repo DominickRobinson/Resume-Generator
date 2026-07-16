@@ -1,0 +1,41 @@
+name: Generate and Deploy PDF Resume
+
+on:
+  push:
+    branches:
+      - main  # Runs automatically whenever you push code edits to your main branch
+  workflow_dispatch: # Allows you to manually trigger the workflow from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      # Puppeteer requires specific system libraries to run Chrome inside Linux environments
+      - name: Install System Dependencies for Headless Puppeteer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg
+          sudo apt-get install -y libgbm-dev libnss3 libatk-bridge2.0-0 libgtk-3-0 libasound2
+
+      - name: Compile PDF Artifact
+        run: node src/render.js --output cv
+
+      # Option A: Save the compiled output safely to GitHub as an downloadable asset
+      - name: Upload PDF to GitHub Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dominick-Robinson-Resume
+          path: dist/cv/DOMINICK_ROBINSON_RESUME.pdf
